@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html ng-app="NGDemo">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">台灣空氣品質</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/">首頁</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div ng-view style="margin-top:50px">
+            <div ng-show="IsLoad" style="text-align:center;">
+                <i class="fa fa-spinner fa-spin fa-3x"></i> Loading ...
+            </div>
+            <div id="content" style="display:none;">
+                @RenderBody()
+            </div>
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - <a href="https://blog.sofast.info/" target="_blank">搜沸死特</a></p>
+        </footer>
+        @Html.Partial("_Login")
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/js")
+    @Scripts.Render("~/bundles/app")
+    @Scripts.Render("~/bundles/TaiwanAirApp")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

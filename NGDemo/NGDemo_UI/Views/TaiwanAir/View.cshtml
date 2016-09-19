@@ -1,0 +1,43 @@
+﻿@model TaiwanAir
+
+<form ng-submit="submit()">
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>TaiwanAir</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TaiwanAir_SiteName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="form-control" name="TaiwanAir_SiteName" ng-Model="TaiwanAir.TaiwanAir_SiteName" required>
+                @Html.ValidationMessageFor(model => model.TaiwanAir_SiteName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TaiwanAir_County, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="form-control" name="TaiwanAir_County" ng-Model="TaiwanAir.TaiwanAir_County">
+                @Html.ValidationMessageFor(model => model.TaiwanAir_County, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TaiwanAir_Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="form-control" name="TaiwanAir_Status" ng-Model="TaiwanAir.TaiwanAir_Status">
+                @Html.ValidationMessageFor(model => model.TaiwanAir_Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-default" type="button" ng-click="go('/TaiwanAir')">Back</button>
+            </div>
+        </div>
+    </div>
+</form>

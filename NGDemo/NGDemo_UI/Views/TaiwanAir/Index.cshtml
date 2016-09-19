@@ -1,0 +1,65 @@
+﻿@model IEnumerable<TaiwanAir>
+
+<div style="text-align:right;margin-bottom:20px;">
+    <button class="btn btn-primary" ng-click="go('/TaiwanAir/Add')">Create</button>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TaiwanAir_SiteName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaiwanAir_County)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaiwanAir_Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaiwanAir_PublishTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="item in TaiwanAirs">
+            <td>
+                {{item.TaiwanAir_SiteName}}
+            </td>
+            <td>
+                {{item.TaiwanAir_County}}
+            </td>
+            <td>
+                {{item.TaiwanAir_Status}}
+            </td>
+            <td>
+                {{item.TaiwanAir_PublishTime}}
+            </td>
+            <td>
+                <button class="btn btn-info" ng-click="go('/TaiwanAir/Edit/' + item.TaiwanAir_ID)">修改</button>
+                <button class="btn btn-danger" ng-click="delete(item.TaiwanAir_ID)">刪除</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div style="text-align:center;">
+    <div>
+        <ul uib-pagination
+            total-items="totalRecords"
+            items-per-page="pageSize"
+            max-size="maxSize"
+            force-ellipses="true"
+            boundary-links="true"
+            ng-model="currentPage"
+            ng-change="pageChanged()"
+            previous-text="上一頁"
+            next-text="下一頁"
+            first-text="第一頁"
+            last-text="最後一頁"
+            class="pagination"></ul>
+    </div>
+    <div>
+        <label class="control-label">總筆數: {{totalRecords}}</label>
+    </div>
+</div>
